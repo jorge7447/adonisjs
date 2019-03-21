@@ -89,6 +89,9 @@ module.exports = {
     model: 'App/Models/User',
     scheme: 'api',
     uid: 'email',
-    password: 'password'
+    password: 'password',
+    options: {
+      secret: 'self::app.appKey'
+    }
   }
 }

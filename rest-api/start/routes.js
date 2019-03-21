@@ -17,3 +17,13 @@
 const Route = use('Route')
 
 Route.on('/').render('welcome')
+
+Route.group(() => {
+    Route.post('login', 'AuthController.login');
+    Route.post('register', 'AuthController.register');
+
+}).prefix('api/v1');
+
+Route.group(() => {
+
+}).prefix('api/v2');
