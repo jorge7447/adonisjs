@@ -35,4 +35,12 @@ Route.group(() => {
 
 Route.group(() => {
 
+    Route.resource('books', 'V2/BookController').middleware(['auth:api'])
+        .validator(new Map([
+            ['books.store', 'StoreBook'],
+            ['books.update', 'UpdateBook']
+        ]));
+
+    Route.get("books/paginated/:offset", "V2/BookController.paginated").middleware(['auth:api']);
+
 }).prefix('api/v2');
